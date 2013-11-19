@@ -5,7 +5,7 @@
 \begin{document}
 
 \name{Ferhat Elmas \hspace{9cm} Passionate Developer}
-\address{Avenue de Rhodanie 64 Chambre 524, 1007 Lausanne Switzerland, (+41) 78 926 9917}
+\address{Chemin des Emetaux 7, 1131 Tolochenaz Morges, Switzerland \hspace{0.55cm} (+41) 78 926 9917}
 \address{\href{mailto:ferhat.elmas@epfl.ch}{ferhat.elmas@epfl.ch} \hspace{1.75cm} \href{http://ferhatelmas.com}{ferhatelmas.com} \hspace{1.75cm}  \href{https://github.com/ferhatelmas}{github.com/ferhatelmas}}
  
 \begin{resume}
@@ -16,7 +16,8 @@
 	{\sl Master of Science,} Computer Science, \href{http://ic.epfl.ch/specializations#content}{Internet Computing} \\
 	\href{http://ic.epfl.ch}{School of Computer and Communication Sciences} \\
 	\href{http://epfl.ch}{Swiss Federal Institute of Technology in Lausanne(EPFL)}, Switzerland \\
-	Expected graduation: 03/2014, currently 5.06/6.00 GPA \\
+	Expected graduation: 04/2014, currently 5.06/6.00 GPA \\
+	Thesis: \textit{\href{http://indico-software.org/}{"New Storage System for Indico, Event Management at CERN"}} \\
 	Semester Project: \textit{\href{http://research.nokia.com/page/12000}{"Nokia Mobile Data Challenge - Demographic Attributes"}} \\
 	Extra Project: \textit{\href{https://github.com/epfldata/squall}{"Squall, Online Query Processing Engine on top of Twitter Storm"}}
  
@@ -24,111 +25,80 @@
 	Faculty of Engineering \\
 	\href{http://boun.edu.tr/en-US/Content/Default.aspx}{Bogazici University}, Istanbul, Turkey \\
 	Graduation grade: 3.61/4.00 GPA (4/72) \\
-	Thesis: \textit{\href{https://github.com/ferhatelmas/deviantART-analysis}{"Social Analysis on DeviantART"}}
- 
-	{\sl Bachelor of Management,}  Business Administration \\
-	School of Management \\
-	\href{http://www.anadolu.edu.tr/en/}{Anadolu University}, Eskisehir, Turkey \\          
-	Long-distance education
-
-	{\sl High School Diploma,} Mathematics and Natural Sciences \\
-	\href{http://www.bursaanadolulisesi.k12.tr/}{Bursa Anatolian High School}, Bursa, Turkey \\
-	Graduation Grade: 5.00/5.00 GPA (1/152)               
+	Thesis: \textit{\href{https://github.com/ferhatelmas/deviantART-analysis}{"Social Analysis on DeviantART"}}  
 
 \vspace{-0.2cm}
-
-\section{AWARDS \& HONORS}
-	2011 {\sl Scientific and Technological Research Council of Turkey 						(\href{http://www.tubitak.gov.tr/en/ot/10/}{Tubitak})} \\
-	\vspace{-.3cm}				
-	\begin{itemize} 
-		\item Scholarship for graduate study
-	\end{itemize}
-	
-	\vspace{-0.4cm}			
-	2009 - 2011 {\sl Bogazici University }
-	\begin{itemize} \itemsep -2pt
-		\item \href{http://www.eng.boun.edu.tr/current_students.html}{Dean's High Honor List for all semesters}	
-	\end{itemize}
-
-  \vspace{-0.4cm}
-	2011 {\sl Vodafone Android Idea Contest Final} \\
- 
-\vspace{-0.4cm} 
 
 \section{EXPERIENCE}
 
   {\sl \textbf{\href{http://indico-software.org/}{Software Developer, Open Source}} \\ \href{http://indico.cern.ch/}{Indico Software @ CERN} Geneva, CH} \hfill Mar 13 - Present \\
   \vspace{-0.3cm}
   \begin{itemize}
-    \item Transition of conference, meeting and workshop management web app from \textit{\href{http://www.zodb.org/}{ZODB}} to \textit{NoSQL}.
+    \item Design and implementation of highly scalable and extensible polyglot storage system
+    \item Modularization of code base by utilizing of required changes due to total replacement of storage system architecture \\ \textbf{OODBMS}(ZODB) $\rightarrow$ \textbf{RDBMS}(PostgreSQL) + \textbf{NoSQL}(Redis+MongoDB)
   \end{itemize}
 
   {\sl \textbf{\href{https://bitbucket.org/zurmo/}{Software Developer, Open Source}} \\ \href{http://zurmo.org}{Zurmo Open Source} Chicago, USA} \hfill May 13 - Present \\
   \vspace{-0.3cm}
   \begin{itemize}
-    \item Database and features team member for mobile, gamified and social CRM written in   \textit{Yii, RedBeanPHP} and \textit{jQuery}.
-    \item Translation of software into Turkish.
+    \item Performant data layer implementation for exciting features of mobile, gamified and social CRM
   \end{itemize}
 
 	{\sl \textbf{\href{https://launchpad.net/mvhub}{Committer, Open Source}} \\ \href{http://thecsl.org/}{Community Software Lab} Massachusetts, USA} \hfill Jun 11 - Feb 12 \\
 	\vspace{-0.3cm}
 	\begin{itemize} \itemsep -2pt
-		\item View abstraction of \textit{\href{http://mvhub.com/}{mvhub.com}} and \textit{\href{http://northshoreport.org/}{northshoreport.org}} (Perl)
-		\item Database normalization and database access layer to utilize different products, currently SQLite(test) and Postgres(production), prod will be extended to use others such as MySQL. (Perl + SQL + bash)
-		\item Writing tests for utopian 100\% coverage (Perl:WWW-Mechanize)
+		\item Transition of social service search engines \textit{\href{http://mvhub.com/}{mvhub.com}} and \textit{\href{http://northshoreport.org/}{northshoreport.org}} to MVC pattern for easier development and maintenance
+		\item Backend agnostic storage system which enables plug and play between different DBMSs
+		\item Restructure of schema for better performance and easier development
 	\end{itemize}
 
 	{\sl \textbf{Software Developer Part time} \\ Bogazici University Civil Engineering Department Istanbul, TR} \hfill Mar 11 - Jun 11 \\
 	\vspace{-0.3cm}
 	\begin{itemize} \itemsep -2pt
-		\item \textit{Traffic Simulator} to test the performance of the congestion/incident detection algorithms, devised by Civil Engineering department (Matlab)
-		\item Incident detection and load generation plugins for Paramics V6 (C/C++)
+		\item \textit{Traffic Simulator} to test the performance of the congestion/incident detection algorithms, devised by Civil Engineering department
+		\item Customizable incident detection and load generation plugins for Paramics, full featured simulation tool used by the department
 	\end{itemize}
 
 	{\sl \textbf{Teaching Assistant} \\ Bogazici University Computer Engineering Istanbul, TR} \hfill Feb 11 - Jun 11 \\
 	\vspace{-.3cm} 
 	\begin{itemize} \itemsep -2pt
 		\item \href{http://www.cmpe.boun.edu.tr/courses/?cmpe=230}{CMPE 230 - \textit{System Programming}}
-		\item Helped students to prepare 3 projects and graded, log parser for \textit{Apache Web Server}(Perl), command line wrapper for \textit{AWS - cloudshell}(Perl) and GUI for \textit{wget}(Qt)
+		\item Helped students to prepare 3 projects and graded them, a minimal log parser for \textit{Apache Web Server}, command line wrapper for \textit{AWS} and graphical user interface for \textit{wget}
 	\end{itemize}
 
 	{\sl \textbf{Software Developer Part time} \\ \href{http://www.pozitron.com/}{Pozitron Mobile} Istanbul, TR} \hfill Aug 10 - Jun 11 \\
 	\vspace{-0.3cm}
 	\begin{itemize} \itemsep -2pt
-		\item \textit{SessionSwitch Service} that monitors the employees working hours (C\#) 
-		\item \textit{\href{http://kapalidevre.com}{kapalidevre.com} digital signage system} that enable customers to prepare custom playlists and to play them on multiple machines at the same time indefinitely. Moreover, it utilizes of web services such as weather forecasts from \textit{\href{http://www.ntvmsnbc.com/}{ntvmsnbc.com}}, news from \textit{\href{http://skyturk.net/}{skyturk.net}}, etc. for richer content.(PHP + C\# + MySQL)
+		\item \textit{SessionSwitch Service}, a monitoring tool that keeps track of what developers do on their machines
+		\item \textit{\href{http://kapalidevre.com}{kapalidevre.com} digital signage system} that enable customers to prepare custom playlists and to play them on multiple machines at the same time indefinitely. It is also extensible  with news, weather forecasts, radio, etc.
 	\end{itemize}
 
 	{\sl \textbf{Software Developer Intern} \\ \href{http://en.netas.com.tr/default.aspx}{Nortel Netas Networks} Istanbul, TR} \hfill Jun 10 - Jul 10 \\
 	\vspace{-0.3cm}
 	\begin{itemize} \itemsep -2pt
-		\item Market analysis for mobile SIP client
-		\item Translation of \textit{\href{https://jitsi.org/}{SIP Communicator(Jitsi)}} into Turkish 
+		\item Market analysis for a mobile SIP client (Palm, BlackBerry, Windows Phone, iOS and Android) and implementation of a very simple prototype in Android
 	\end{itemize}
 
 	{\sl \textbf{Software Developer Intern} \\ \href{http://www.pozitron.com/}{Pozitron Mobile} Istanbul, TR} \hfill Jan 10 - Feb 10 \\
 	\vspace{-0.3cm}
 	\begin{itemize} \itemsep -2pt
-		\item \textit{Download Manager}, a tool that serves mobile software at pre-Android era, is reimplemented make use of servlet 3.0 specification and applied load tests by Grinder. (JEE + Python + MySQL)
-		\item \textit{Server health watcher}, analytics and emergency tool. (JEE + JSP + Swing + Google AppEngine)
-		\item Refactoring of BlackBerry corporate push application for private usage. (Java)
+		\item \textit{Download Manager}, a web application to serve versions of mobile applications at pre-smart-phone era according to phone specification
+		\item \textit{Server health watcher aka Big Brother}, analytics and emergency recovery tool
 	\end{itemize}							
 
 	{\sl \textbf{Software Developer Intern} \\ \href{http://www.pozitron.com/}{Pozitron Mobile} Istanbul, TR} \hfill Jun 09 - Oct 09\\
 	\vspace{-0.3cm}
 	\begin{itemize} \itemsep -2pt
-		\item \textit{Log parser} to extract daily statistics automatically for the mobile part of \href{http://www.isbank.com.tr/English/}{Turkish IsBank} (Perl)
-		\item \textit{Download and Device Manager} that keep up-to-date database for mobile handsets  and JSRs. According to the model of the handset, it serves the related version. (JEE + MySQL)
-		\item \textit{XML editor} that utilizes domain specific information to easily edit a XML document ($\sim$50k LOC) that contains information about the components of the software developed by \textit{Pozitron Mobile}. (Java + Swing)
+		\item Implementation of a manager for logs and notifications for mobile banking at \href{http://www.isbank.com.tr/English/}{Turkish IsBank}
+		\item Domain specific editor for a custom XML-based language, that is used to define the hierarchy of the code written by the company
 	\end{itemize}
 
 \section{COMPUTER \\ SKILLS} 
 	\begin{itemize}
-		\item Solid background on \textbf{data structures} and \textbf{algorithms} via various web sites
-		\item \textbf{Proficient in Java} and some experience in Scala via preferably IntelliJ IDEA
-		\item Mostly enjoys driving \textbf{Python/Ruby/Perl} but also agnostic for big guys \textbf{C/C++}
-		\item Experienced developer in \textbf{Linux} (Debian/Ubuntu) and software version control (SVN, Bazaar, \textbf{Git}), edits in Sublime \& Vim
-		\item Played frameworks \& APIs: Evernote, Facebook, Twitter, Google AppEngine, AWS, Heroku, Qt, Swing,  \textbf{JEE, RoR, Django, Hadoop, Storm}, Avro, Bootstrap, jQuery, \textbf{Android}
+		\item Solid background on \textbf{data structures} and \textbf{algorithms}
+		\item \textbf{Proficient in Java} and experienced in \textbf{Scala}
+		\item Mostly drives \textbf{Python/Ruby/Perl} but also agnostic about \textbf{C/C++/Go} and indispensable \textbf{Javascript}
+		\item Experienced developer on \textbf{Linux} and \textbf{Git}
 	\end{itemize}
 \end{resume}
 \end{document}
