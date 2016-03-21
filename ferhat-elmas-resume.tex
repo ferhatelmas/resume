@@ -1,102 +1,120 @@
-\documentclass[line, margin]{res} 
+\documentclass[line, margin]{res}
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage[colorlinks=true, urlcolor=Violet]{hyperref}
+\usepackage{times}
+\usepackage{textcomp}
 
 \begin{document}
 
 \name{Ferhat Elmas \hspace{9cm} Passionate Developer}
 \address{Rue de Neuchatel 10, 1201 Geneva, Switzerland \hspace{2.7cm} (+41) 78 926 9917}
-\address{\href{mailto:ferhat.elmas@epfl.ch}{ferhat.elmas@epfl.ch} \hspace{1.75cm} \href{http://ferhatelmas.com}{ferhatelmas.com} \hspace{1.75cm}  \href{https://github.com/ferhatelmas}{github.com/ferhatelmas}}
- 
-\begin{resume}
- 
-\vspace{-0.4cm} 
-  
-\section{EDUCATION}
-	{\sl Master of Science,} Computer Science, with \href{http://ic.epfl.ch/specializations#content}{Internet Computing Specialization} \\
-	\href{http://ic.epfl.ch}{School of Computer and Communication Sciences} \\
-	\href{http://epfl.ch}{Swiss Federal Institute of Technology in Lausanne(EPFL)}, Switzerland \\
-	Thesis: \textit{\href{http://indico-software.org/}{"New Storage System for Indico, Event Management at CERN"}} \\
-	Semester Project: \textit{\href{http://research.nokia.com/page/12000}{"Nokia Mobile Data Challenge - Demographic Attributes"}} \\
-	Extra Project: \textit{\href{https://github.com/epfldata/squall}{"Squall, Online Query Processing Engine on top of Twitter Storm"}}
- 
-	{\sl Bachelor of Engineering,} \href{http://www.cmpe.boun.edu.tr/}{Computer Engineering} \\
-	Faculty of Engineering \\
-	\href{http://boun.edu.tr/en-US/Content/Default.aspx}{Bogazici University}, Istanbul, Turkey \\
-	Thesis: \textit{\href{https://github.com/ferhatelmas/deviantART-analysis}{"Social Analysis on DeviantART"}}  
+\address{\href{mailto:elmas.ferhat@gmail.com}{elmas.ferhat@gmail.com} \hspace{1.2cm} \href{http://ferhatelmas.com}{ferhatelmas.com} \hspace{1.6cm}  \href{https://github.com/ferhatelmas}{github.com/ferhatelmas}}
 
-\vspace{-0.2cm}
+\begin{resume}
+
+\vspace{-0.4cm}
 
 \section{EXPERIENCE}
 
-  {\sl \textbf{\href{http://indico-software.org/}{Software Developer, Open Source}} \\ \href{http://indico.cern.ch/}{Indico Software @ CERN} Geneva, CH} \hfill Mar 13 - Sep 14 \\
-  \vspace{-0.3cm}
-  \begin{itemize}
-    \item Design and implementation of highly scalable and extensible polyglot storage system
-    \item Integrated MVC design pattern to modularize code base by utilizing of bulk changes in storage system architecture \\ \textbf{OODBMS} (ZODB) $\rightarrow$ \textbf{RDBMS} (PostgreSQL) + \textbf{NoSQL} (Redis+MongoDB)
-    \item Python 3 port
-  \end{itemize}
+{\sl \textbf{Full-Stack Developer} \\ \href{http://www.agflow.com}{AgFlow} Geneva, CH} \hfill February 15 - Current \\
+\vspace{-0.3cm}
+\begin{itemize}
+  \item Increase data processing capacity 3 times and speed \texttildelow 20 times by using correct data store, where previous one was very slow for our relational data and required ad-hoc queries for search engine (main feature).
+  \item Ditched NoSQL as main store but it doesn't mean it's removed completely from architecture. Even utilised more in specific tasks such as task runner, sessions, output caching and tests.
+  \item Reworked front-end build for 2 times faster and 40\% smaller bundles, which is also helping us for ES6 transition.
+  \item Implemented framework to integrate data of different ground operation companies, which is currently used for 4 companies to enable 2 main supportive features for cash price search engine.
+  \item Implemented robust payment system via Stripe, which is replacing manual invoices. Currently, brings more money than previous manual system without any effort.
+  \item Brought analysis and charts to expose historical data which create additional dimension in the usefulness of website.
+  \item Designed and implemented admin console to automate / control administrative tasks easily. It provides better insights, easier data manipulation and tracking, full automation on tools / services  (i.e. Asana, Sendgrid, Stripe, Twitter, etc.) where it's main ingredient while building growth plan.
+\end{itemize}
 
-	{\sl \textbf{\href{https://launchpad.net/mvhub}{Committer, Open Source}} \\ \href{http://thecsl.org/}{Community Software Lab} Massachusetts, USA} \hfill Jun 11 - Feb 12 \\
-	\vspace{-0.3cm}
-	\begin{itemize} \itemsep -2pt
-		\item Transition of social service search engines \textit{\href{http://mvhub.com/}{mvhub.com}} and \textit{\href{http://northshoreport.org/}{northshoreport.org}} to MVC pattern for easier development and maintenance
-		\item Custom ORM to provide backend agnostic storage system which enables plug and play between different DBMSs
-		\item Restructure of schema for normalization (DRY), performance (to reflect usage patterns better) and tools (to use new features of DBs).
-	\end{itemize}
+{\sl \textbf{Backend and Infrastructure Developer} \\ \href{http://www.unit9.com/}{Innovative studio, Unit9} London, UK} \hfill September 14 - February 15 \\
+\vspace{-0.3cm}
+\begin{itemize}
+  \item \texttildelow 3.5 TB tweet analysis to extract brand impressions in terms of location, age, keyword, etc.\ to show importance of Twitter for brands, which was \href{http://www.unit9.com/innovation/twitter-ces-experience}{Twitter 2015 CES experience}.
+  \item Quickly learned Symfony \(PHP\) and wrote complete backend of \href{https://realfoodie.sanpellegrino.com/}{San Pellegrino Real Foodie} competition website.
+\end{itemize}
 
-	{\sl \textbf{Software Developer Part time} \\ Bogazici University Civil Engineering Department Istanbul, TR} \hfill Mar 11 - Jun 11 \\
-	\vspace{-0.3cm}
-	\begin{itemize} \itemsep -2pt
-		\item \textit{Traffic Simulator} to test the performance of the congestion/incident detection algorithms, devised by Civil Engineering department
-		\item Customizable incident detection and load generation plugins for Paramics, full featured simulation tool used by the department
-	\end{itemize}
+{\sl \textbf{\href{http://indico-software.org/}{Software Developer, Open Source}} \\ \href{http://indico.cern.ch/}{Indico Software @ CERN} Geneva, CH} \hfill Mar 13 - Sep 14 \\
+\vspace{-0.3cm}
+\begin{itemize}
+  \item Integrated MVC and structured coding, and extracted microservices which easily enabled using multiple databases for better scalability and speed.
+  \item Designed and implemented highly scalable and extensible polyglot storage system \textbf{OODBMS} (ZODB) + \textbf{RDBMS} (PostgreSQL) + \textbf{NoSQL} (Redis and MongoDB)
+  \item Brought Python 3 that results easier maintenance and faster application with fixed many bugs thanks to new Unicode handling.
+  \item All in all, made the ground work for the next decade of CERN Event management application.
+\end{itemize}
 
-	{\sl \textbf{Teaching Assistant} \\ Bogazici University Computer Engineering Istanbul, TR} \hfill Feb 11 - Jun 11 \\
-	\vspace{-.3cm} 
-	\begin{itemize} \itemsep -2pt
-		\item \href{http://www.cmpe.boun.edu.tr/courses/?cmpe=230}{CMPE 230 - \textit{System Programming}}
-		\item Helped students to prepare 3 projects and graded them, a minimal log parser for \textit{Apache Web Server}, a command line client for \textit{AWS} and a graphical user interface for \textit{wget}
-	\end{itemize}
+{\sl \textbf{\href{https://launchpad.net/mvhub}{Committer, Open Source}} \\ \href{http://thecsl.org/}{Community Software Lab} Massachusetts, USA} \hfill Jun 11 - Feb 12 \\
+\vspace{-0.3cm}
+\begin{itemize} \itemsep -2pt
+  \item Transition of social service search engines \textit{\href{http://mvhub.com/}{mvhub.com}} and \textit{\href{http://northshoreport.org/}{northshoreport.org}} to MVC architecture for easier development and maintenance
+  \item Custom ORM to provide backend agnostic storage system which enables plug and play between different DBMSs
+  \item Restructured DB schema for normalization (DRY), performance (to reflect usage patterns better) and tools (to use new features of DBs).
+\end{itemize}
 
-	{\sl \textbf{Software Developer Part time} \\ \href{http://www.pozitron.com/}{Pozitron Mobile} Istanbul, TR} \hfill Aug 10 - Jun 11 \\
-	\vspace{-0.3cm}
-	\begin{itemize} \itemsep -2pt
-		\item \textit{SessionSwitch Service}, a monitoring tool that keeps track of what developers do on their machines
-		\item \textit{\href{http://kapalidevre.com}{kapalidevre.com} digital signage system} that enable customers to prepare custom playlists and to play them on multiple machines at the same time indefinitely. Rejuvenated the desktop client and integrated multiple web services to provide long-time lacking features such as news, weather forecasts, radio, etc.
-	\end{itemize}
+{\sl \textbf{Software Developer Part time} \\ Bogazici University Civil Engineering Department Istanbul, TR} \hfill Mar 11 - Jun 11 \\
+\vspace{-0.3cm}
+\begin{itemize} \itemsep -2pt
+  \item Customizable incident detection and load generation plugins for Paramics, a full featured simulation tool used by the department
+  \item Implemented \textit{Traffic Simulator} to test the performance of the congestion/incident detection research algorithms that aren't easily simulated in their tools.
+\end{itemize}
 
-	{\sl \textbf{Software Developer Intern} \\ \href{http://netas.com.tr/en}{Nortel Netas Networks} Istanbul, TR} \hfill Jun 10 - Jul 10 \\
-	\vspace{-0.3cm}
-	\begin{itemize} \itemsep -2pt
-		\item Market analysis for a mobile SIP client (Palm, BlackBerry, Windows Phone, iOS and Android) and implementation of a very simple prototype in Android
-	\end{itemize}
+{\sl \textbf{Teaching Assistant} \\ Bogazici University Computer Engineering Istanbul, TR} \hfill Feb 11 - Jun 11 \\
+\vspace{-.3cm}
+\begin{itemize} \itemsep -2pt
+  \item \href{http://www.cmpe.boun.edu.tr/courses/?cmpe=230}{CMPE 230 - \textit{System Programming}}, teaches compilers, linkers, loaders, Unix and system calls, and uses assembly, make, C and Perl.
+  \item Helped students to prepare 3 projects and graded them, a minimal log parser for \textit{Apache Web Server}, a command line client for \textit{AWS} and a graphical user interface for \textit{wget}
+\end{itemize}
 
-	{\sl \textbf{Software Developer Intern} \\ \href{http://www.pozitron.com/}{Pozitron Mobile} Istanbul, TR} \hfill Jan 10 - Feb 10 \\
-	\vspace{-0.3cm}
-	\begin{itemize} \itemsep -2pt
-		\item \textit{Download Manager}, a web application to serve versions of mobile applications at pre-smart-phone era according to phone specification
-		\item \textit{Server health watcher aka Big Brother}, analytics and emergency recovery tool
-	\end{itemize}							
+{\sl \textbf{Software Developer} \\ \href{http://www.pozitron.com/}{Pozitron Mobile} Istanbul, TR} \hfill Aug 10 - Jun 11 \\
+\vspace{-0.3cm}
+\begin{itemize} \itemsep -2pt
+  \item \textit{SessionSwitch Service}, a monitoring tool that keeps track of what developers do on their machines. After putting it in place, it seems everybody works more hours.
+  \item \textit{\href{http://kapalidevre.com}{kapalidevre.com} digital signage system} that enables customers to prepare custom playlists and to play them on multiple machines at the same time indefinitely such as screens at shopping malls. Rejuvenated the desktop client and integrated multiple web services to provide long-time lacking features such as news, weather forecasts, radio, etc.
+\end{itemize}
 
-	{\sl \textbf{Software Developer Intern} \\ \href{http://www.pozitron.com/}{Pozitron Mobile} Istanbul, TR} \hfill Jun 09 - Oct 09\\
-	\vspace{-0.3cm}
-	\begin{itemize} \itemsep -2pt
-		\item Implementation of a manager for logs and notifications for mobile banking at \href{http://www.isbank.com.tr/English/}{Turkish IsBank}
-		\item Domain specific editor for a custom XML-based language, that is used to define the hierarchy of the code written by the company
-	\end{itemize}
+{\sl \textbf{Software Developer Intern} \\ \href{http://netas.com.tr/en}{Nortel Netas Networks} Istanbul, TR} \hfill Jun 10 - Jul 10 \\
+\vspace{-0.3cm}
+\begin{itemize} \itemsep -2pt
+  \item Market analysis for a mobile SIP client (Palm, BlackBerry, Windows Phone, iOS and Android) and implementation of a very simple prototype in Android, which helped to give a final decision for the platform on which company will put all resources for full featured implementation.
+\end{itemize}
 
-\section{COMPUTER \\ SKILLS} 
-	\begin{itemize}
-		\item Solid background on \textbf{data structures}, \textbf{algorithms} and \textbf{distributed systems}
-		\item Experienced developer on \textbf{Linux} environment 
-		\item \textbf{Proficient in Java} and experienced in \textbf{Scala}
-		\item Mostly drives \textbf{Python/Ruby/Perl} but also productive in \textbf{C/C++/Go} and indispensable \textbf{JavaScript}
-		\item Loves experimenting with languages such as \textit{Haskell, Io, Julia, Prolog, Racket, Rust, Scheme, SML}
-		\item Used to use \textbf{SVN} but now completely leverages \textbf{Git}
-		\item Experienced in \textbf{RDBMSs (PostgreSQL/MySQL)}, knowledgeable in many \textbf{NoSQL products (MongoDB, OrientDB, Redis, etc.)} and was lucky enough to solve some big data problems with \textit{Avro/Hadoop/Kafka/Pig/Storm/ Thrift/Zookeeper}
-		\item Industry-proven experience in backend development but actually productive throughout the full stack
-	\end{itemize}
+{\sl \textbf{Software Developer Intern} \\ \href{http://www.pozitron.com/}{Pozitron Mobile} Istanbul, TR} \hfill Jan 10 - Feb 10 \\
+\vspace{-0.3cm}
+\begin{itemize} \itemsep -2pt
+  \item \textit{Download Manager}, a web application to serve versions of mobile applications at pre-smart-phone era according to phone specification.
+  \item Implemented custom and simply Nagios, \textit{Server health watcher aka Big Brother}, for analytics and emergency recovery.
+\end{itemize}
+
+{\sl \textbf{Software Developer Intern} \\ \href{http://www.pozitron.com/}{Pozitron Mobile} Istanbul, TR} \hfill Jun 09 - Oct 09\\
+\vspace{-0.3cm}
+\begin{itemize} \itemsep -2pt
+  \item Implementation of a manager for logs and notifications for mobile banking at \href{http://www.isbank.com.tr/English/}{Turkish IsBank}
+  \item Domain specific editor for a custom XML-based language, that is used to define the hierarchy of the code written by the company
+\end{itemize}
+
+\section{COMPUTER \\ SKILLS}
+\begin{itemize}
+  \item Solid background on \textbf{data structures}, \textbf{algorithms} and \textbf{distributed systems}
+  \item Experienced developer on \textbf{Linux} environment
+  \item Mostly drives \textbf{Go/Python/JavaScript} but also has a broad repertoire from C to Scala, LISP to Prolog to pick according to task.
+  \item Experienced in \textbf{RDBMSs (PostgreSQL/MySQL)}, knowledgeable in many \textbf{NoSQL products (MongoDB, OrientDB, Redis, etc.)} and was lucky enough to solve some big data problems with \textit{Avro/Hadoop/Kafka/Pig/Storm/Thrift/Zookeeper}
+  \item Edits in \textbf{Vim}, tracks via \textbf{Git}, automates with \textbf{make} and deploys to \textbf{Docker}.
+\end{itemize}
+
+\section{EDUCATION}
+{\sl Master of Science,} Computer Science, with \href{http://ic.epfl.ch/specializations#content}{Internet Computing Specialization} \hfill{2014} \\ 
+  \href{http://ic.epfl.ch}{School of Computer and Communication Sciences} \\
+  \href{http://epfl.ch}{Swiss Federal Institute of Technology in Lausanne(EPFL)}, Switzerland \\
+  Thesis: \textit{\href{http://indico-software.org/}{"New Storage System for Indico, Event Management at CERN"}} \\
+  Semester Project: \textit{\href{http://research.nokia.com/page/12000}{"Nokia Mobile Data Challenge - Demographic Attributes"}} \\
+  Extra Project: \textit{\href{https://github.com/epfldata/squall}{"Squall, Online Query Processing Engine on top of Twitter Storm"}}
+
+{\sl Bachelor of Engineering,} \href{http://www.cmpe.boun.edu.tr/}{Computer Engineering} \hfill{2011} \\
+  Faculty of Engineering \\
+  \href{http://boun.edu.tr/en-US/Content/Default.aspx}{Bogazici University}, Istanbul, Turkey \\
+  Thesis: \textit{\href{https://github.com/ferhatelmas/deviantART-analysis}{"Social Analysis on DeviantART"}}
+
 \end{resume}
 \end{document}
 
