@@ -16,15 +16,21 @@
 
 \section{EXPERIENCE}
 
-{\sl \textbf{Senior Software Engineer} \\ \href{https://getstream.io/}{Stream} Amsterdam, NL} \hfill November 19 - Now \\
+{\sl \textbf{Senior Software Engineer} \\ \href{https://www.getstream.io}{Stream} Amsterdam, NL} \hfill November 19 - Now \\
 \vspace{-0.3cm}
 \begin{itemize}
-  \item Improve the performance and the personalization of aggregated feeds by moving project from Python to Go and providing more customization options to rank / aggregate / manage the social graph.
-  \item Maintain and modernize of \textit{feed} and \textit{chat} client libraries in JavaScript, Python, Go, etc.
+  \item While owning the feed product, successfully implemented some important missing features for both feeds and chat; ranking for aggregated feeds, reaction counters in ranking, batching analytics, push notifications in chat, realtime updates for feeds, etc.
+  \item Improved billing monitoring by batching updates from API to broker (RabbitMQ) and refactoring ingestion system in Redis and PostgreSQL.
+  \item Successfully moved the main feed database (Keevo, custom developed distributed key-value store) into a fully automated and distributed version as a part of two people team. As a result of this change, a new cluster could easily be spinnned to take the given percentage of the load from the existing clusters.
+  \item Moved statistics to Keevo from PostgreSQL but dropping the need for PG, 7K \$ savings per month and also upgraded 9.x Postgres to 12.x without affecting any production traffic (36 DBs in 5 regions).
+  \item Maintained Go, Python, Ruby, JavaScript (feed), Java, C\#, PHP SDKs. Except JavaScript, it was for both products, feeds and chat. 
+  \item Successfully moved backend repositories into a mono repo and integrated Go and JS SDKs into CI environment.
+  \item Handled the most number of support requests (3 times more than the runner up) with the highest satisfaction ratio.
   
 \end{itemize}
 
-{\sl \textbf{CTO} \\ \href{https://www.agflow.com}{AgFlow} Geneva, CH} \hfill January 18 - October 19 \\
+
+{\sl \textbf{CTO, scaling team and infrastructure} \\ \href{http://www.agflow.com}{AgFlow} Geneva, CH} \hfill January 18 - October 19 \\
 \vspace{-0.3cm}
 \begin{itemize}
   \item Leveraged machine learning to create automated data pipeline which collects data through different mediums; natural text in email, HTML scraping, Excel and PDF parsing, OCR etc; cleans and normalizes the data, makes outlier and correlation analysis. Our system can also fill the missing dates and can predict forward quotes up to 1 year in \%7 error tolerance.
@@ -35,12 +41,24 @@
   \item Converted web client to Typescript and introduced Flutter for mobile clients. 
   \item Used multiple APIs; Twilio for WhatsApp, Typeform for forms, Auth0 for authentication and authorization, Pusher for push notifications etc.
   \item Scaled the development team from 2 to globally distributed 11 members.
+  
+\end{itemize}
+
+{\sl \textbf{CTO, bootstrap} \\ \href{http://www.agflow.com}{AgFlow} Geneva, CH} \hfill December 16 - January 18 \\
+\vspace{-0.3cm}
+\begin{itemize}
+  \item Complete automatization of data loading which previously required human resources; reduced work force by 2 people and costs around 40K \$ yearly.
+  \item Tripled data coverage (global trade flows) and cross referenced with different data sets (prices, futures, weather, etc) to  provide ultimate search experience in the domain. ElasticSearch and Redis are leveraged.
+  \item Extended product portfolio by building a well-documented and easy-to-use API, provides raw and processed access to different stages of our data - exactly as it is, cleaned, interpolated and anomaly detection applied, finally high level inferences.
+  \item Migrated to a popular and modern cloud, enabled us to cut previous custom implementations and to use standard tools; integrated some tools along the way such as terraform for provisioning, ansible for automation, prometheus/netdata for metrics and outlier detection, hubot for chatOps, jenkins for CI.
+  \item Modernised our client stack. Converted CoffeeScript to ES6, integrated flow for type support, ESlint for linting,  prettier for automatic formatting and various tools in React ecosystem to replace our implementations; redux, react-router.
+  \item Brought TensorFlow to build reference indices intelligently similar to   what Bloomberg does.
 \end{itemize}
 
 {\sl \textbf{Full-Stack Developer} \\ \href{http://www.agflow.com}{AgFlow} Geneva, CH} \hfill February 15 - December 16 \\
 \vspace{-0.3cm}
 \begin{itemize}
-  \item Increase data processing capacity 3 times and speed \texttildelow 20 times by using correct data store, where previous one was very slow for our relational data and required ad-hoc queries for search engine (main feature).
+  \item Increase data processing capacity 3 times and speed around 20 times by using correct data store, where previous one was very slow for our relational data and required ad-hoc queries for search engine (main feature).
   \item Ditched NoSQL as main store but it doesn't mean it's removed completely from architecture. Even utilised more in specific tasks such as task runner, sessions, output caching and tests.
   \item Reworked front-end build for 2 times faster and 40\% smaller bundles, which is also helping us for ES6 transition.
   \item Implemented framework to integrate data of different ground operation companies, which is currently used for 4 companies to enable 2 main supportive features for cash price search engine.
@@ -118,10 +136,10 @@
 \begin{itemize}
   \item Solid background on \textbf{data structures}, \textbf{algorithms} and \textbf{distributed systems}
   \item Experienced developer on \textbf{Linux} environment
-  \item Mostly drives \textbf{Go / Python / JavaScript} but also has a broad repertoire to pick according to task.
-  \item Experienced in \textbf{RDBMSs (PostgreSQL, MySQL, Presto)},
-  \textbf{TSDBs (TimescaleDB / Prometheus)}, knowledgeable in many \textbf{NoSQL DBs (Redis / MongoDB / RethinkDB / ElasticSearch / Neo4j)} and was lucky to solve some big data problems with \textbf{Hadoop} and \textbf{Spark} ecosystems.
-  \item Edits in \textbf{Vim}, tracks via \textbf{Git}, automates with \textbf{make} and \textbf{ansible}, and deploys to \textbf{Kubernetes} and \textbf{Rancher}.
+  \item Mostly drives \textbf{Go/Python/JavaScript} but also has a broad repertoire from C to Scala, LISP to Prolog to pick according to task.
+  \item Experienced in \textbf{RDBMSs (PostgreSQL / Citus / MySQL / Presto)},
+  \textbf{time-series DBs (TimescaleDB / Prometheus)}, knowledgeable in many \textbf{NoSQL DBs (Redis / MongoDB / RethinkDB / ElasticSearch / Neo4j / OrientDB)} and was lucky to solve some big data problems with \textbf{Hadoop / Spark} ecosystem
+  \item Edits in \textbf{Vim}, tracks via \textbf{Git}, automates with \textbf{make} and \textbf{ansible} and deploys to \textbf{Kubernetes}.
 \end{itemize}
 
 \section{EDUCATION}
