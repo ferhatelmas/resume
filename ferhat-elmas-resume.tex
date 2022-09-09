@@ -16,142 +16,224 @@
 
 \section{EXPERIENCE}
 
-{\sl \textbf{Backend Team Lead} \\ \href{https://www.getstream.io}{Stream} Amsterdam, NL} \hfill April 21 - Now \\
+{\sl \textbf{\href{https://getstream.io}{Stream Inc.}}: Chat and Feed API provider \hfill Amsterdam, NL} \\
+{\sl \textbf{Principal Engineer} \hfill June 22 - Now} \\
+{\sl \textbf{Backend Tech Lead} \hfill Apr 21 - May 22} \\
+{\sl \textbf{Senior Engineer} \hfill Nov 19 - Mar 21} \\
+
 \vspace{-0.3cm}
-\begin{itemize}
-  \item Implemented Campaign API to be able to send and track millions of messages from server environments.
-  \item Moved search into ElasticSearch from Postgres seamlessly in multi-tenant environment.
-  \item Implemented sync and async Open Graph url enrichment for both chat \& feed products.
-  \item Implemented custom CDN on top of S3 and CloudFront and asset pipeline (auto compression, resizing and automatic thumbnail generation, privacy controls such as refreshing \& metadata removal, virus scanning and analytics).
-  \item Implemented improved version of push notifications; added new push providers (Huawei \& Xiaomi), added multi-tenant support, simplified configuration and introduced customization in every level (app, channel, member, user, etc.). Additionally, there was a historical hard limit on product due to how caching was implemented. Many features aren't working for channels with more than 100 members and this limit is completely removed for push notifications for total fanout.
-  \item I also drived the product direction, actively participated in hiring, mentoring and onboarding enterprise customers, and day to day, technically led one of the backend teams (which was also owning backend SDKs).
+\begin{itemize} \itemsep -5pt
+	\item{Moved data systems from a mix of Keevo (custom DB on top of RocksDB), PostgreSQL, DynamoDB and ElasticSearch to CockroachDB. Challenges:}
+		\begin{itemize} \itemsep -5pt \small
+		\vspace{-.2cm}
+		\item Amount of data
+		\item Zero down time
+		\item Parallel feature development and changing schemas
+		\end{itemize}
+		
+	\item{Implemented campaigns within the chat to be able to send and to track millions of messages in an automated and customizable way. Challenges:}
+		\begin{itemize} \itemsep -5pt \small
+		\vspace{-.2cm}
+		\item The speedy delivery of massive amount of messages and their tracking and analytics
+		\item Auto speed adjustments not to DDOS internal subsystems
+		\item Reliability and extracting enough information for users on errors
+		\end{itemize}
+		
+	\item{Added open Graph URL enrichment support for shared links. Challenges:}
+		\begin{itemize} \itemsep -5pt \small
+		\vspace{-.2cm}
+		\item Rate limiting, geographical and cloud IP blocking, robots.txt honoring, Javascript rendering
+		\item Slow target servers
+		\item Provided customization to the users to how/what to pick from targets
+		\end{itemize}
+		
+	\item{Implemented a custom CDN on top of S3 and CloudFront. Challenges:}
+		\begin{itemize} \itemsep -5pt \small
+		\vspace{-.2cm}
+		\item Support of various file formats and analytics
+		\item Optimizations: auto compression, resizing, thumbnailing
+		\item Privacy controls: refreshment, metadata removal, virus protection
+		\end{itemize}
+	
+	\item{Implemented push notifications for chat. Challenges:}
+		\begin{itemize} \itemsep -5pt \small
+		\vspace{-.2cm}
+		\item Customization: events, features (translation, collapsing, etc.), multi bundle and tenancy, etc.
+		\item Various provider support and compatibility between different platforms
+		\item Performance and the removal of the historical supported max limit of members in a channel
+		\end{itemize}
+		
+	\item{Implemented message and user search via ElasticSearch for chat. Challenges:}
+		\begin{itemize} \itemsep -5pt \small
+		\vspace{-.2cm}
+		\item No down time migration from PostgreSQL
+		\item Reusing query parsing and code generation layer from PostgreSQL
+		\item Indexing of very frequently changing data such as last active time of users
+		\end{itemize}
+	
+	\item{Added aggregated feed ranking with user provided rules. Challenges:}
+		\begin{itemize} \itemsep -5pt \small
+		\vspace{-.2cm}
+		\item Pressure on the latency due to the amount of data, at least 15x increase
+		\item Incremental computation and caching the results
+		\item Working with a custom database which lacks necessary query capabilities
+		\end{itemize}
+		
+	\item{Added realtime updates for each operation within feed product. Challenges:}
+		\begin{itemize} \itemsep -5pt \small
+		\vspace{-.2cm}
+		\item Scalability due to the nature of the load and slow consumers of the customers
+		\item Analytics and retry capabilities
+		\end{itemize}
+	
+	\item{Added batching to external analytics and internal billing tracking APIs. Challenges:}
+		\begin{itemize} \itemsep -5pt \small
+		\vspace{-.2cm}
+		\item Handling money
+		\item Throttling and implementation of a cost effective automated queueing system
+		\item TTL of data
+		\end{itemize}
+		
+	\item{Added automatic sharding Keevo (custom DB on top of RocksDB) in feeds. Challenges:}
+		\begin{itemize} \itemsep -5pt \small
+		\vspace{-.2cm}
+		\item No down time migration
+		\item Good key selection, handling hot shards and automatic provisioning
+		\item Handling raft overhead
+		\end{itemize}
+		
+	\item{Moved statistics from PostgreSQL to Keevo, the source of truth. Challenges:}
+		\begin{itemize} \itemsep -5pt \small
+		\vspace{-.2cm}
+		\item Backward compatibility for the same querying interface without overhead
+		\item Incremental and scratch counting according to the demand
+		\item Automatic alerting engine and also custom rule support
+		\end{itemize}
+\end{itemize}
+
+{\sl \textbf{\href{https://agflow.com}{AgFlow}} \hfill Geneva, CH} \\
+{\sl \textbf{CTO} \hfill Dec 16 - Oct 19} \\
+{\sl \textbf{Senior Developer} \hfill Feb 15 - Nov 16} \\
+
+\vspace{-0.3cm}
+\begin{itemize} \itemsep -5pt
+	\item{Leveraged machine learning to create automated data pipeline to collect data through different mediums. Challenges:}
+		\begin{itemize} \itemsep -5pt \small
+		\vspace{-.2cm}
+		\item High variable and error-prone sources: natural text emails, HTML/Excel/PDF/OCR, etc.
+		\item Missing, ambiguous and sometimes intentionally wrong data 
+		\item Syntetic data generation for the gaps and forward prediction
+		\item Useful human involvement and its support with enough meaningful feedback
+		\item Integration of other supportive data types to commodity prices such as transport pricing and queueing delay, quality information, taxes, crop amounts, country economical facts, etc.
+		\end{itemize}
+		
+	\item{Implemented easy to use API to serve collected data. Challenges:}
+		\begin{itemize} \itemsep -5pt \small
+		\vspace{-.2cm}
+		\item Support for various transports such as JSON, RPC, Excel, FIX, SQL, etc.
+		\item Privacy of the data sources
+		\end{itemize}
+		
+	\item{Introduced cloud-native infrastructure, data system and versioning. Some examples from the stack are K8s, Rancher, Rook, TimescaleDB, Pachyderm, Drone, Prometheus. Challenges:}
+		\begin{itemize} \itemsep -5pt \small
+		\vspace{-.2cm}
+		\item Changing architecture and infrastructure while adding new features fast and adapting a machine learning stack at the same time
+		\item Not enough battle tested experience in the community or in the team, and selection should support growth for the foreseeable future
+		\end{itemize}			
+
+	\item{Modernized the web client via TypeScript from CoffeeScript and implemented the first version of mobile clients in Flutter. Integrated various 3rd party APIs to offload non-critical pieces such as Twilio for WhatsApp data source, TypeForm for structured input from contributors, Auth0 for auth and session sharing prevention, Stripe for subscriptions, Pusher for data sync in clients and push notifications. Challenges:}
+		\begin{itemize} \itemsep -5pt \small
+		\vspace{-.2cm}
+		\item Technologies were new and team didn't have enough experience
+		\end{itemize}		
+				
+	\item Scaled the development team from 2 to globally distributed 11 members.
+\end{itemize}
+
+{\sl \textbf{\href{http://www.unit9.com/}{Unit9, Innovative Studio}} \hfill London, UK} \\
+{\sl \textbf{Backend and Infrastructure Developer} \hfill Aug 14 - Jan 15} \\
+
+\vspace{-0.3cm}
+\begin{itemize} \itemsep -5pt
+	\item{Full backend implementation of \href{https://www.unit9.com/project/san-pellegrino-are-you-a-real-foodie/}{San Pellegrino Real Foodie} competition website. Challenges:}
+		\begin{itemize} \itemsep -5pt \small
+		\vspace{-.2cm}
+		\item Tight deadline, changing requirements, globally distributed team, totally new stack(PHP/Symfony  and Angular) and no control over infrastructure
+		\end{itemize}
+	
+	\item 3.5 TB tweet analysis to extract brand impressions in terms of location, age, keyword, etc.\ to show importance of Twitter for brands, which was \href{http://www.unit9.com/innovation/twitter-ces-experience}{Twitter 2015 CES experience}. Challenges:
+		\begin{itemize} \itemsep -5pt \small
+		\vspace{-.2cm}
+		\item Tight deadline and delayed/multiple times changed data from Twitter
+		\item User information wasn't there and required machine learning model to fill the gaps
+		\item Provided infrastructure wasn't enough to process/serve the amount of data which required a lot of byte shaving tricks
+		\end{itemize}
 
 \end{itemize}
 
-{\sl \textbf{Senior Software Engineer} \\ \href{https://www.getstream.io}{Stream} Amsterdam, NL} \hfill November 19 - March 21 \\
+{\sl \textbf{\href{http://indico-software.org/}{Indico @ CERN}} \hfill Geneva, CH} \\
+{\sl \textbf{Software Developer} \hfill Mar 13 - Aug 14} \\
+
 \vspace{-0.3cm}
-\begin{itemize}
-  \item While owning the feed product, successfully implemented some important missing features for both feeds and chat; ranking for aggregated feeds, reaction counters in ranking, batching analytics, push notifications in chat, realtime updates for feeds, etc.
-  \item Improved billing monitoring by batching updates from API to broker (RabbitMQ) and refactoring ingestion system in Redis and PostgreSQL.
-  \item Successfully moved the main feed database (Keevo, custom developed distributed key-value store) into a fully automated and distributed version as a part of two people team. As a result of this change, a new cluster could easily be spinnned to take the given percentage of the load from the existing clusters.
-  \item Moved statistics to Keevo from PostgreSQL but dropping the need for PG, 7K \$ savings per month and also upgraded 9.x Postgres to 12.x without affecting any production traffic (36 DBs in 5 regions).
-  \item Maintained Go, Python, Ruby, JavaScript (feed), Java, C\#, PHP SDKs. Except JavaScript, it was for both products, feeds and chat. 
-  \item Successfully moved backend repositories into a mono repo and integrated Go and JS SDKs into CI environment.
-  \item Handled the most number of support requests (3 times more than the runner up) with the highest satisfaction ratio.
-  
+\begin{itemize} \itemsep -3pt
+	\vspace{-.2cm}
+	\item Integrated MVC and structured coding, and extracted microservices which easily enabled using multiple databases for better scalability and speed
+	\item Designed and implemented highly scalable and extensible polyglot storage system OODBMS (ZODB) + RDBMS (PostgreSQL) + NoSQL (Redis and MongoDB)
+	\item Brought Python 3 that results easier maintenance and faster application with fixed many bugs thanks to new Unicode handling
+	\item All in all, made the ground work for the next decade of CERN Event management application
 \end{itemize}
 
+{\sl \textbf{\href{https://launchpad.net/mvhub}{Community Software Lab}} \hfill Massachusetts, US} \\
+{\sl \textbf{Software Developer} \hfill Jun 11 - Feb 12} \\
 
-{\sl \textbf{CTO, scaling team and infrastructure} \\ \href{http://www.agflow.com}{AgFlow} Geneva, CH} \hfill January 18 - October 19 \\
 \vspace{-0.3cm}
-\begin{itemize}
-  \item Leveraged machine learning to create automated data pipeline which collects data through different mediums; natural text in email, HTML scraping, Excel and PDF parsing, OCR etc; cleans and normalizes the data, makes outlier and correlation analysis. Our system can also fill the missing dates and can predict forward quotes up to 1 year in \%7 error tolerance.
-  \item Introduced pachyderm to implement a data lake, provides the de facto place for all the data collected with structured and versioned storage.
-  \item Adapted cloud-native and introduced Kubernetes with Rancher to ease management of the infrastructure, switched CI to Drone, coupled PostgreSQL/Prometheus with Grafana. Introduced bots for common tasks, renovate for deps, open-bot for repo management, etc.
-  \item Heavily utilized TimescaleDB for time series; forex, futures, quotes, supply \& demand.
-  \item Integrated Open API and Slate for beautiful automatically generated API documentation. Integrated docusaurus for developer documentation.
-  \item Converted web client to Typescript and introduced Flutter for mobile clients. 
-  \item Used multiple APIs; Twilio for WhatsApp, Typeform for forms, Auth0 for authentication and authorization, Pusher for push notifications etc.
-  \item Scaled the development team from 2 to globally distributed 11 members.
-  
+\begin{itemize} \itemsep -3pt
+	\vspace{-.2cm}
+	\item Transition of social service search engines \textit{\href{http://mvhub.com/}{mvhub.com}} and \textit{\href{http://northshoreport.org/}{northshoreport.org}} to MVC architecture for easier development and maintenance
+	\item Custom ORM to provide backend agnostic storage system which enables plug and play between different DBMSs
+	\item Normalized DB schema for fixing various update bugs and improved performance
 \end{itemize}
 
-{\sl \textbf{CTO, bootstrap} \\ \href{http://www.agflow.com}{AgFlow} Geneva, CH} \hfill December 16 - January 18 \\
+{\sl \textbf{\href{http://www.ce.boun.edu.tr/}{Bogazici University Civil Engineering Department}} \hfill Istanbul, TR} \\
+{\sl \textbf{Software Developer} \hfill Mar 11 - Jun 11} \\
+
 \vspace{-0.3cm}
-\begin{itemize}
-  \item Complete automatization of data loading which previously required human resources; reduced work force by 2 people and costs around 40K \$ yearly.
-  \item Tripled data coverage (global trade flows) and cross referenced with different data sets (prices, futures, weather, etc) to  provide ultimate search experience in the domain. ElasticSearch and Redis are leveraged.
-  \item Extended product portfolio by building a well-documented and easy-to-use API, provides raw and processed access to different stages of our data - exactly as it is, cleaned, interpolated and anomaly detection applied, finally high level inferences.
-  \item Migrated to a popular and modern cloud, enabled us to cut previous custom implementations and to use standard tools; integrated some tools along the way such as terraform for provisioning, ansible for automation, prometheus/netdata for metrics and outlier detection, hubot for chatOps, jenkins for CI.
-  \item Modernised our client stack. Converted CoffeeScript to ES6, integrated flow for type support, ESlint for linting,  prettier for automatic formatting and various tools in React ecosystem to replace our implementations; redux, react-router.
-  \item Brought TensorFlow to build reference indices intelligently similar to   what Bloomberg does.
+\begin{itemize} \itemsep -3pt
+	\vspace{-.2cm}
+	\item Customizable incident detection and load generation plugins for Paramics, a full featured simulation tool used by the department
+	\item Implemented \textit{Traffic Simulator} to test the performance of the congestion/incident detection research algorithms that aren't easily simulated in their tools.
 \end{itemize}
 
-{\sl \textbf{Full-Stack Developer} \\ \href{http://www.agflow.com}{AgFlow} Geneva, CH} \hfill February 15 - December 16 \\
-\vspace{-0.3cm}
-\begin{itemize}
-  \item Increase data processing capacity 3 times and speed around 20 times by using correct data store, where previous one was very slow for our relational data and required ad-hoc queries for search engine (main feature).
-  \item Ditched NoSQL as main store but it doesn't mean it's removed completely from architecture. Even utilised more in specific tasks such as task runner, sessions, output caching and tests.
-  \item Reworked front-end build for 2 times faster and 40\% smaller bundles, which is also helping us for ES6 transition.
-  \item Implemented framework to integrate data of different ground operation companies, which is currently used for 4 companies to enable 2 main supportive features for cash price search engine.
-  \item Implemented robust payment system via Stripe, which is replacing manual invoices. Currently, brings more money than previous manual system without any effort.
-  \item Brought analysis and charts to expose historical data which create additional dimension in the usefulness of website.
-  \item Designed and implemented admin console to automate / control administrative tasks easily. It provides better insights, easier data manipulation and tracking, full automation on tools / services  (i.e. Asana, Sendgrid, Stripe, Twitter, etc.) where it's main ingredient while building growth plan.
-\end{itemize}
+{\sl \textbf{\href{http://www.cmpe.boun.edu.tr/}{Bogazici University Computer Engineering Department}} \hfill Istanbul, TR} \\
+{\sl \textbf{Teaching Assistant} \hfill Feb 11 - Jun 11} \\
 
-{\sl \textbf{Backend and Infrastructure Developer} \\ \href{http://www.unit9.com/}{Innovative studio, Unit9} London, UK} \hfill September 14 - February 15 \\
-\vspace{-0.3cm}
-\begin{itemize}
-  \item \texttildelow 3.5 TB tweet analysis to extract brand impressions in terms of location, age, keyword, etc.\ to show importance of Twitter for brands, which was \href{http://www.unit9.com/innovation/twitter-ces-experience}{Twitter 2015 CES experience}.
-  \item Quickly learned Symfony \(PHP\) and wrote complete backend of \href{https://realfoodie.sanpellegrino.com/}{San Pellegrino Real Foodie} competition website.
-\end{itemize}
-
-{\sl \textbf{\href{http://indico-software.org/}{Software Developer, Open Source}} \\ \href{http://indico.cern.ch/}{Indico Software @ CERN} Geneva, CH} \hfill Mar 13 - Sep 14 \\
-\vspace{-0.3cm}
-\begin{itemize}
-  \item Integrated MVC and structured coding, and extracted microservices which easily enabled using multiple databases for better scalability and speed.
-  \item Designed and implemented highly scalable and extensible polyglot storage system \textbf{OODBMS} (ZODB) + \textbf{RDBMS} (PostgreSQL) + \textbf{NoSQL} (Redis and MongoDB)
-  \item Brought Python 3 that results easier maintenance and faster application with fixed many bugs thanks to new Unicode handling.
-  \item All in all, made the ground work for the next decade of CERN Event management application.
-\end{itemize}
-
-{\sl \textbf{\href{https://launchpad.net/mvhub}{Committer, Open Source}} \\ \href{http://thecsl.org/}{Community Software Lab} Massachusetts, USA} \hfill Jun 11 - Feb 12 \\
-\vspace{-0.3cm}
-\begin{itemize} \itemsep -2pt
-  \item Transition of social service search engines \textit{\href{http://mvhub.com/}{mvhub.com}} and \textit{\href{http://northshoreport.org/}{northshoreport.org}} to MVC architecture for easier development and maintenance
-  \item Custom ORM to provide backend agnostic storage system which enables plug and play between different DBMSs
-  \item Restructured DB schema for normalization (DRY), performance (to reflect usage patterns better) and tools (to use new features of DBs).
-\end{itemize}
-
-{\sl \textbf{Software Developer Part time} \\ Bogazici University Civil Engineering Department Istanbul, TR} \hfill Mar 11 - Jun 11 \\
-\vspace{-0.3cm}
-\begin{itemize} \itemsep -2pt
-  \item Customizable incident detection and load generation plugins for Paramics, a full featured simulation tool used by the department
-  \item Implemented \textit{Traffic Simulator} to test the performance of the congestion/incident detection research algorithms that aren't easily simulated in their tools.
-\end{itemize}
-
-{\sl \textbf{Teaching Assistant} \\ Bogazici University Computer Engineering Istanbul, TR} \hfill Feb 11 - Jun 11 \\
 \vspace{-.3cm}
-\begin{itemize} \itemsep -2pt
-  \item \href{http://www.cmpe.boun.edu.tr/courses/?cmpe=230}{CMPE 230 - \textit{System Programming}}, teaches compilers, linkers, loaders, Unix and system calls, and uses assembly, make, C and Perl.
-  \item Helped students to prepare 3 projects and graded them, a minimal log parser for \textit{Apache Web Server}, a command line client for \textit{AWS} and a graphical user interface for \textit{wget}
+\begin{itemize} \itemsep -3pt
+	\vspace{-.2cm}
+	\item \href{http://www.cmpe.boun.edu.tr/courses/?cmpe=230}{CMPE 230 - \textit{System Programming}}, teaches compilers, linkers, loaders, Unix and system calls, and uses assembly, make, C and Perl.
+	\item Helped students to prepare 3 projects and graded them, a minimal log parser for \textit{Apache Web Server}, a command line client for \textit{AWS} and a graphical user interface for \textit{wget}
 \end{itemize}
 
-{\sl \textbf{Software Developer} \\ \href{http://www.pozitron.com/}{Pozitron Mobile} Istanbul, TR} \hfill Aug 10 - Jun 11 \\
-\vspace{-0.3cm}
-\begin{itemize} \itemsep -2pt
-  \item \textit{SessionSwitch Service}, a monitoring tool that keeps track of what developers do on their machines. After putting it in place, it seems everybody works more hours.
-  \item \textit{\href{http://kapalidevre.com}{kapalidevre.com} digital signage system} that enables customers to prepare custom playlists and to play them on multiple machines at the same time indefinitely such as screens at shopping malls. Rejuvenated the desktop client and integrated multiple web services to provide long-time lacking features such as news, weather forecasts, radio, etc.
-\end{itemize}
+{\sl \textbf{\href{https://www.commencis.com/}{Commencis (previously Monitise/Pozitron)}} \hfill Istanbul, TR} \\
+{\sl \textbf{Software Developer} \hfill Jan 09 - Jun 11} \\
 
-{\sl \textbf{Software Developer Intern} \\ \href{http://netas.com.tr/en}{Nortel Netas Networks} Istanbul, TR} \hfill Jun 10 - Jul 10 \\
 \vspace{-0.3cm}
-\begin{itemize} \itemsep -2pt
-  \item Market analysis for a mobile SIP client (Palm, BlackBerry, Windows Phone, iOS and Android) and implementation of a very simple prototype in Android, which helped to give a final decision for the platform on which company will put all resources for full featured implementation.
-\end{itemize}
-
-{\sl \textbf{Software Developer Intern} \\ \href{http://www.pozitron.com/}{Pozitron Mobile} Istanbul, TR} \hfill Jan 10 - Feb 10 \\
-\vspace{-0.3cm}
-\begin{itemize} \itemsep -2pt
-  \item \textit{Download Manager}, a web application to serve versions of mobile applications at pre-smart-phone era according to phone specification.
-  \item Implemented custom and simply Nagios, \textit{Server health watcher aka Big Brother}, for analytics and emergency recovery.
-\end{itemize}
-
-{\sl \textbf{Software Developer Intern} \\ \href{http://www.pozitron.com/}{Pozitron Mobile} Istanbul, TR} \hfill Jun 09 - Oct 09\\
-\vspace{-0.3cm}
-\begin{itemize} \itemsep -2pt
-  \item Implementation of a manager for logs and notifications for mobile banking at \href{http://www.isbank.com.tr/English/}{Turkish IsBank}
-  \item Domain specific editor for a custom XML-based language, that is used to define the hierarchy of the code written by the company
+\begin{itemize} \itemsep -3pt
+	\vspace{-.2cm}
+	\item \textit{SessionSwitch Service}, a monitoring tool that keeps track of what developers do on their machines. After putting it in place, it seemed everybody worked longer
+	\item \textit{\href{http://kapalidevre.com}{kapalidevre.com} digital signage system} that enables customers to prepare custom playlists and to play them on multiple machines at the same time indefinitely such as screens at shopping malls. Rejuvenated the desktop client and integrated multiple web services to provide long-time lacking features such as news, weather forecasts, radio, etc.
+	\item \textit{Download Manager}, a web application to serve versions of mobile applications at pre-smart-phone era according to phone specification. A much simpler version of Google Play.
+	\item Implemented custom simple Nagios, \textit{Server health watcher aka Big Brother}, for analytics and emergency recovery
+	\item Implementation of a manager for logs and notifications for mobile banking at \href{http://www.isbank.com.tr/English/}{Turkish IsBank}
+	\item Domain specific editor for a custom XML-based language, that is used to define the hierarchy of the code written by the company
 \end{itemize}
 
 \section{COMPUTER \\ SKILLS}
-\begin{itemize}
-  \item Solid background on \textbf{data structures}, \textbf{algorithms} and \textbf{distributed systems}
-  \item Experienced developer on \textbf{Linux} environment
-  \item Mostly drives \textbf{Go/Python/JavaScript} but also has a broad repertoire from C to Scala, LISP to Prolog to pick according to task.
-  \item Experienced in \textbf{RDBMSs (PostgreSQL / Citus / MySQL / Presto)},
-  \textbf{time-series DBs (TimescaleDB / Prometheus)}, knowledgeable in many \textbf{NoSQL DBs (Redis / MongoDB / RethinkDB / ElasticSearch / Neo4j / OrientDB)} and was lucky to solve some big data problems with \textbf{Hadoop / Spark} ecosystem
-  \item Edits in \textbf{Vim}, tracks via \textbf{Git}, automates with \textbf{make} and \textbf{ansible} and deploys to \textbf{Kubernetes}.
+\begin{itemize} \itemsep -3pt
+	\item Solid background on \textbf{data structures}, \textbf{algorithms} and \textbf{distributed systems}
+	\item Experienced developer on \textbf{Linux} environment
+	\item Mostly drives \textbf{Go/Python/JavaScript} but can also pick up any language according to the needs
+	\item Experienced in \textbf{RDBMSs (CockroachDB, TiDB, PostgreSQL)}, \textbf{time-series DBs (TimescaleDB / Prometheus)}, \textbf{NoSQL DBs (Redis / etcd / ElasticSearch / DynamoDB)} and used \textbf{RabbitMQ / NATS / Kafka} for communication, and leveraged \textbf{Envoy / K8s / Terraform / Ansible} as part of the critical infrastructure
 \end{itemize}
 
 \section{EDUCATION}
