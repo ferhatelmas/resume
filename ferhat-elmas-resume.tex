@@ -16,8 +16,37 @@
 
 \section{EXPERIENCE}
 
+{\sl \textbf{\href{https://cloudflare.com}{Cloudflare}}: Making web better \hfill Amsterdam, NL} \\
+{\sl \textbf{Systems Engineer} \hfill Feb 23 - Now} \\
+
+\vspace{-0.3cm}
+\begin{itemize} \itemsep -5pt
+	\item{Implement strongly consistent global caching for \href{https://developers.cloudflare.com/r2/}{R2} metadata using Memcached/Consul with implementation in Go. Challenges:}
+		\begin{itemize} \itemsep -5pt \small
+		\vspace{-.2cm}
+		\item Consistency guarantees while keeping S3 compatibility
+		\item Hard requirements around sub-millisecond latency globally
+		\item Self-recovering on underlying infrastructure issues
+		\item Hot bucket handling and sharding
+		\end{itemize}
+
+	\item{Implement efficient account tags for R2 billing at edge for performance. Challenges:}
+		\begin{itemize} \itemsep -5pt \small
+		\vspace{-.2cm}
+		\item Propagation delay, cache eviction and consistency
+		\item Extensibility for other features
+		\end{itemize}
+
+	
+	\item{Transition of R2 worker from Node to \href{https://github.com/cloudflare/workerd}{workerd} from prod env parity. Challenges:}
+		\begin{itemize} \itemsep -5pt \small
+		\vspace{-.2cm}
+		\item Internal customizations that aren't available in open version
+		\end{itemize}
+\end{itemize}
+
 {\sl \textbf{\href{https://getstream.io}{Stream Inc.}}: Chat and Feed API provider \hfill Amsterdam, NL} \\
-{\sl \textbf{Principal Engineer} \hfill June 22 - Now} \\
+{\sl \textbf{Principal Engineer} \hfill June 22 - Jan 23} \\
 {\sl \textbf{Backend Tech Lead} \hfill Apr 21 - May 22} \\
 {\sl \textbf{Senior Engineer} \hfill Nov 19 - Mar 21} \\
 
