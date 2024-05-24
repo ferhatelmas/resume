@@ -21,11 +21,20 @@
 
 \vspace{-0.3cm}
 \begin{itemize} \itemsep -5pt
+	\item{Implement tiered-cache for \href{https://developers.cloudflare.com/kv/}{KV}. Challenges:}
+		\begin{itemize} \itemsep -5pt \small
+		\vspace{-.2cm}
+		\item Efficient topology design in terms of cost (i.e. keeping multiple copies), latency improvements (i.e. P95) and validating consistency requirements
+		\item Zero downtime rollout and rollback procedure with worker gradual deployments
+		\item Improved observability for better bandwidth tracking of the topology and batching at edge
+		\end{itemize}
+	
 	\item{Onboard \href{https://developers.cloudflare.com/kv/}{KV} to gradual deployments. Challenges:}
 		\begin{itemize} \itemsep -5pt \small
 		\vspace{-.2cm}
 		\item Zero downtime while supporting multi-million RPS
 		\end{itemize}
+		
 	\item{Implement strongly consistent global caching for \href{https://developers.cloudflare.com/r2/}{R2} metadata using Memcached/Consul with implementation in Go. Challenges:}
 		\begin{itemize} \itemsep -5pt \small
 		\vspace{-.2cm}
