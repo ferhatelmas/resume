@@ -1,289 +1,174 @@
-\documentclass[line, margin]{res}
-\usepackage[usenames,dvipsnames]{xcolor}
-\usepackage[colorlinks=true, urlcolor=Violet]{hyperref}
-\usepackage{times}
-\usepackage{textcomp}
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[sfdefault]{inter}
+\usepackage{microtype}
+\usepackage[
+  top=1.35cm,
+  bottom=1.25cm,
+  left=1.55cm,
+  right=1.55cm
+]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage[unicode,colorlinks=true,urlcolor=accent]{hyperref}
+
+\definecolor{ink}{HTML}{172033}
+\definecolor{accent}{HTML}{1E5A7A}
+\definecolor{muted}{HTML}{5D6675}
+\definecolor{rule}{HTML}{D7DEE7}
+
+\hypersetup{
+  pdftitle={Ferhat Elmas - Resume},
+  pdfauthor={Ferhat Elmas},
+  pdfsubject={Distributed systems and storage engineering},
+  pdfkeywords={distributed systems, storage, caching, data infrastructure, Go}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\urlstyle{same}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[R]{\color{muted}\scriptsize \thepage}
+
+\titleformat{\section}
+  {\normalsize\bfseries\color{ink}}
+  {}{0pt}{\MakeUppercase}
+  [\vspace{2pt}{\color{rule}\titlerule}]
+\titlespacing*{\section}{0pt}{10pt}{6pt}
+
+\setlist[itemize]{
+  leftmargin=1.15em,
+  label=\textcolor{accent}{\raisebox{0.15ex}{\tiny\textbullet}},
+  itemsep=2.2pt,
+  topsep=3pt,
+  parsep=0pt,
+  partopsep=0pt
+}
+
+\newcommand{\role}[4]{%
+  {\large\bfseries\color{ink}#1}\hfill{\small\color{muted}#2}\par
+  {\bfseries\color{accent}#3}\hfill{\small\color{muted}#4}\par
+}
+
+\newcommand{\compactrole}[4]{%
+  {\bfseries\color{ink}#1}\hfill{\small\color{muted}#2}\par
+  {\small\color{accent}#3}\hfill{\small\color{muted}#4}\par
+}
+
+\newcommand{\compactdetail}[1]{%
+  {\small #1}\par\vspace{3pt}
+}
 
 \begin{document}
+\raggedright
 
-\name{Ferhat Elmas \hspace{10cm} Passionate Developer}
-\address{\hspace{0.1cm}\href{mailto:elmas.ferhat@gmail.com}{elmas.ferhat@gmail.com}}
-\address{\hspace{0.3cm}\href{https://github.com/ferhatelmas}{github.com/ferhatelmas}}
+{\fontsize{28}{30}\selectfont\bfseries\color{ink}Ferhat Elmas}%
+\hfill
+\raisebox{5pt}[0pt][0pt]{%
+  {\footnotesize\color{muted}\shortstack[r]{Updated\\September 2026}}%
+}\par
+{\large\color{accent}Distributed systems and storage engineer}\par
+\vspace{3pt}
+{\small\color{muted}
+  \href{mailto:elmas.ferhat@gmail.com}{elmas.ferhat@gmail.com}
+  \hspace{0.65em}\textcolor{rule}{\textbullet}\hspace{0.65em}
+  \href{https://github.com/ferhatelmas}{github.com/ferhatelmas}
+}\par
 
-\begin{resume}
+\vspace{5pt}
+{\color{rule}\hrule height 1.2pt}
 
-\vspace{-0.4cm}
+\section{Profile}
+Systems engineer with 15+ years of experience building distributed data platforms, storage systems, high-throughput APIs, and developer infrastructure. Delivered zero-downtime migrations and multi-million-RPS rollouts, and grew a globally distributed engineering team.
 
-\section{EXPERIENCE}
+\section{Core expertise}
+{\bfseries\color{ink}Systems}\enspace Distributed systems, storage, caching, consistency, sharding, zero-downtime migrations\par
+\vspace{2pt}
+{\bfseries\color{ink}Languages}\enspace Go, Rust, Python, TypeScript/JavaScript\par
+\vspace{2pt}
+{\bfseries\color{ink}Data and infrastructure}\enspace PostgreSQL, object storage, RocksDB, CockroachDB, DynamoDB, Kafka, Redis/Valkey, Memcached, Consul, Kubernetes, Elasticsearch, CDNs\par
 
-{\sl \textbf{\href{https://cloudflare.com}{Cloudflare}}: Making web better \hfill Amsterdam, NL} \\
-{\sl \textbf{Senior Systems Engineer} \hfill Feb 23 - Now} \\
+\section{Experience}
 
-\vspace{-0.3cm}
-\begin{itemize} \itemsep -5pt
-	\item{Implement tiered-cache for \href{https://developers.cloudflare.com/kv/}{KV}. Challenges:}
-		\begin{itemize} \itemsep -5pt \small
-		\vspace{-.2cm}
-		\item Efficient topology design in terms of cost (i.e. keeping multiple copies), latency improvements (i.e. P95) and validating consistency requirements
-		\item Zero downtime rollout and rollback procedure with worker gradual deployments
-		\item Improved observability for better bandwidth tracking of the topology and batching at edge
-		\end{itemize}
-	
-	\item{Onboard \href{https://developers.cloudflare.com/kv/}{KV} to gradual deployments. Challenges:}
-		\begin{itemize} \itemsep -5pt \small
-		\vspace{-.2cm}
-		\item Zero downtime while supporting multi-million RPS
-		\end{itemize}
-		
-	\item{Implement strongly consistent global caching for \href{https://developers.cloudflare.com/r2/}{R2} metadata using Memcached/Consul with implementation in Go. Challenges:}
-		\begin{itemize} \itemsep -5pt \small
-		\vspace{-.2cm}
-		\item Consistency guarantees while keeping S3 compatibility
-		\item Hard requirements around sub-millisecond latency globally
-		\item Self-recovering on underlying infrastructure issues
-		\item Hot bucket handling and sharding
-		\end{itemize}
-
-	\item{Implement efficient account tags for R2 billing at edge for performance. Challenges:}
-		\begin{itemize} \itemsep -5pt \small
-		\vspace{-.2cm}
-		\item Propagation delay, cache eviction and consistency
-		\item Extensibility for other features
-		\end{itemize}
-
-	
-	\item{Transition of R2 worker from Node to \href{https://github.com/cloudflare/workerd}{workerd} from prod env parity. Challenges:}
-		\begin{itemize} \itemsep -5pt \small
-		\vspace{-.2cm}
-		\item Internal customizations that aren't available in open version
-		\end{itemize}
+\role{Supabase}{Amsterdam, Netherlands}{Storage Engineer}{February 2026 - Present}
+\begin{itemize}
+  \item Build and operate \href{https://github.com/supabase/storage}{Supabase Storage}, an S3-compatible object storage product backed by multi-tenant PostgreSQL. Use customer workloads and production telemetry to set product and architecture priorities.
+  \item Led a large database and runtime refactor. Replaced Knex with pg, introduced transport-neutral contracts, and moved Storage to a multi-worker architecture while preserving REST, S3, and TUS behavior.
+  \item Cut CPU, allocations, and connection churn across S3 routing, SigV4 uploads, authorization, logging, metrics, TLS, and tenant pools, improving throughput and lowering compute and database cost per request.
+  \item Expanded the product with vector storage across pgvector and S3 Vectors, adding OrioleDB support, pagination, provider-specific limits, and cross-backend acceptance coverage.
+  \item Built foundations for object versioning and lifecycle policies. Used progressive, migration-aware rollouts across existing tenants and hardened TUS and database-connection failure paths.
 \end{itemize}
 
-{\sl \textbf{\href{https://getstream.io}{Stream Inc.}}: Chat and Feed API provider \hfill Amsterdam, NL} \\
-{\sl \textbf{Principal Engineer} \hfill June 22 - Jan 23} \\
-{\sl \textbf{Backend Tech Lead} \hfill Apr 21 - May 22} \\
-{\sl \textbf{Senior Engineer} \hfill Nov 19 - Mar 21} \\
-
-\vspace{-0.3cm}
-\begin{itemize} \itemsep -5pt
-	\item{Moved data systems from a mix of Keevo (custom DB on top of RocksDB), PostgreSQL, DynamoDB and ElasticSearch to CockroachDB. Challenges:}
-		\begin{itemize} \itemsep -5pt \small
-		\vspace{-.2cm}
-		\item Amount of data
-		\item Zero down time
-		\item Parallel feature development and changing schemas
-		\end{itemize}
-		
-	\item{Implemented campaigns within the chat to be able to send and to track millions of messages in an automated and customizable way. Challenges:}
-		\begin{itemize} \itemsep -5pt \small
-		\vspace{-.2cm}
-		\item The speedy delivery of massive amount of messages and their tracking and analytics
-		\item Auto speed adjustments not to DDOS internal subsystems
-		\item Reliability and extracting enough information for users on errors
-		\end{itemize}
-		
-	\item{Added open Graph URL enrichment support for shared links. Challenges:}
-		\begin{itemize} \itemsep -5pt \small
-		\vspace{-.2cm}
-		\item Rate limiting, geographical and cloud IP blocking, robots.txt honoring, Javascript rendering
-		\item Slow target servers
-		\item Provided customization to the users to how/what to pick from targets
-		\end{itemize}
-		
-	\item{Implemented a custom CDN on top of S3 and CloudFront. Challenges:}
-		\begin{itemize} \itemsep -5pt \small
-		\vspace{-.2cm}
-		\item Support of various file formats and analytics
-		\item Optimizations: auto compression, resizing, thumbnailing
-		\item Privacy controls: refreshment, metadata removal, virus protection
-		\end{itemize}
-	
-	\item{Implemented push notifications for chat. Challenges:}
-		\begin{itemize} \itemsep -5pt \small
-		\vspace{-.2cm}
-		\item Customization: events, features (translation, collapsing, etc.), multi bundle and tenancy, etc.
-		\item Various provider support and compatibility between different platforms
-		\item Performance and the removal of the historical supported max limit of members in a channel
-		\end{itemize}
-		
-	\item{Implemented message and user search via ElasticSearch for chat. Challenges:}
-		\begin{itemize} \itemsep -5pt \small
-		\vspace{-.2cm}
-		\item No down time migration from PostgreSQL
-		\item Reusing query parsing and code generation layer from PostgreSQL
-		\item Indexing of very frequently changing data such as last active time of users
-		\end{itemize}
-	
-	\item{Added aggregated feed ranking with user provided rules. Challenges:}
-		\begin{itemize} \itemsep -5pt \small
-		\vspace{-.2cm}
-		\item Pressure on the latency due to the amount of data, at least 15x increase
-		\item Incremental computation and caching the results
-		\item Working with a custom database which lacks necessary query capabilities
-		\end{itemize}
-		
-	\item{Added realtime updates for each operation within feed product. Challenges:}
-		\begin{itemize} \itemsep -5pt \small
-		\vspace{-.2cm}
-		\item Scalability due to the nature of the load and slow consumers of the customers
-		\item Analytics and retry capabilities
-		\end{itemize}
-	
-	\item{Added batching to external analytics and internal billing tracking APIs. Challenges:}
-		\begin{itemize} \itemsep -5pt \small
-		\vspace{-.2cm}
-		\item Handling money
-		\item Throttling and implementation of a cost effective automated queueing system
-		\item TTL of data
-		\end{itemize}
-		
-	\item{Added automatic sharding Keevo (custom DB on top of RocksDB) in feeds. Challenges:}
-		\begin{itemize} \itemsep -5pt \small
-		\vspace{-.2cm}
-		\item No down time migration
-		\item Good key selection, handling hot shards and automatic provisioning
-		\item Handling raft overhead
-		\end{itemize}
-		
-	\item{Moved statistics from PostgreSQL to Keevo, the source of truth. Challenges:}
-		\begin{itemize} \itemsep -5pt \small
-		\vspace{-.2cm}
-		\item Backward compatibility for the same querying interface without overhead
-		\item Incremental and scratch counting according to the demand
-		\item Automatic alerting engine and also custom rule support
-		\end{itemize}
+\vspace{4pt}
+\role{Cloudflare}{Amsterdam, Netherlands}{Senior Systems Engineer}{February 2023 - January 2026}
+\begin{itemize}
+  \item Designed KV's tiered-cache and multi-worker architecture to abstract multiple storage engines while balancing P95 latency, consistency, bandwidth, and replica cost.
+  \item Moved KV to a hybrid storage architecture combining a custom engine with R2 through a live data migration, using gradual rollout and rollback at multi-million RPS.
+  \item Moved KV's REST API from core services to the edge, improving performance and rate limiting while adding batch operations.
+  \item Built a KV sync engine on sharded Cloudflare Queues to make global synchronization across multiple storage systems faster and more reliable.
+  \item Replaced full rescans for KV billing with incremental accounting and added edge-cached account tags for R2 billing.
+  \item Built a strongly consistent global cache for R2 metadata in Go with Memcached and Consul, preserving S3 compatibility and sub-millisecond latency requirements.
 \end{itemize}
 
-{\sl \textbf{\href{https://agflow.com}{AgFlow}} \hfill Geneva, CH} \\
-{\sl \textbf{CTO} \hfill Dec 16 - Oct 19} \\
-{\sl \textbf{Senior Developer} \hfill Feb 15 - Nov 16} \\
+\newpage
 
-\vspace{-0.3cm}
-\begin{itemize} \itemsep -5pt
-	\item{Leveraged machine learning to create automated data pipeline to collect data through different mediums. Challenges:}
-		\begin{itemize} \itemsep -5pt \small
-		\vspace{-.2cm}
-		\item High variable and error-prone sources: natural text emails, HTML/Excel/PDF/OCR, etc.
-		\item Missing, ambiguous and sometimes intentionally wrong data 
-		\item Syntetic data generation for the gaps and forward prediction
-		\item Useful human involvement and its support with enough meaningful feedback
-		\item Integration of other supportive data types to commodity prices such as transport pricing and queueing delay, quality information, taxes, crop amounts, country economical facts, etc.
-		\end{itemize}
-		
-	\item{Implemented easy to use API to serve collected data. Challenges:}
-		\begin{itemize} \itemsep -5pt \small
-		\vspace{-.2cm}
-		\item Support for various transports such as JSON, RPC, Excel, FIX, SQL, etc.
-		\item Privacy of the data sources
-		\end{itemize}
-		
-	\item{Introduced cloud-native infrastructure, data system and versioning. Some examples from the stack are K8s, Rancher, Rook, TimescaleDB, Pachyderm, Drone, Prometheus. Challenges:}
-		\begin{itemize} \itemsep -5pt \small
-		\vspace{-.2cm}
-		\item Changing architecture and infrastructure while adding new features fast and adapting a machine learning stack at the same time
-		\item Not enough battle tested experience in the community or in the team, and selection should support growth for the foreseeable future
-		\end{itemize}			
+\section{Experience continued}
 
-	\item{Modernized the web client via TypeScript from CoffeeScript and implemented the first version of mobile clients in Flutter. Integrated various 3rd party APIs to offload non-critical pieces such as Twilio for WhatsApp data source, TypeForm for structured input from contributors, Auth0 for auth and session sharing prevention, Stripe for subscriptions, Pusher for data sync in clients and push notifications. Challenges:}
-		\begin{itemize} \itemsep -5pt \small
-		\vspace{-.2cm}
-		\item Technologies were new and team didn't have enough experience
-		\end{itemize}		
-				
-	\item Scaled the development team from 2 to globally distributed 11 members.
+\vspace{4pt}
+{\large\bfseries\color{ink}Stream Inc.}\hfill{\small\color{muted}Amsterdam, Netherlands}\par
+{\bfseries\color{accent}Principal Engineer}\hfill{\small\color{muted}June 2022 - January 2023}\par
+{\bfseries\color{accent}Backend Tech Lead}\hfill{\small\color{muted}April 2021 - May 2022}\par
+{\bfseries\color{accent}Senior Engineer}\hfill{\small\color{muted}November 2019 - March 2021}\par
+\begin{itemize}
+  \item Migrated data systems from Keevo, PostgreSQL, DynamoDB, and Elasticsearch to CockroachDB without downtime while schemas and product features continued to change.
+  \item Built chat campaigns that delivered and tracked millions of messages, with adaptive throttling, analytics, and actionable error reporting.
+  \item Shipped link enrichment, a custom S3 and CloudFront CDN, and push-notification infrastructure across multiple providers and tenants.
+  \item Developed search, feed ranking, real-time updates, automatic sharding, and billing pipelines under high write volume and tight latency constraints.
 \end{itemize}
 
-{\sl \textbf{\href{http://www.unit9.com/}{Unit9, Innovative Studio}} \hfill London, UK} \\
-{\sl \textbf{Backend and Infrastructure Developer} \hfill Aug 14 - Jan 15} \\
-
-\vspace{-0.3cm}
-\begin{itemize} \itemsep -5pt
-	\item{Full backend implementation of \href{https://www.unit9.com/project/san-pellegrino-are-you-a-real-foodie/}{San Pellegrino Real Foodie} competition website. Challenges:}
-		\begin{itemize} \itemsep -5pt \small
-		\vspace{-.2cm}
-		\item Tight deadline, changing requirements, globally distributed team, totally new stack(PHP/Symfony  and Angular) and no control over infrastructure
-		\end{itemize}
-	
-	\item 3.5 TB tweet analysis to extract brand impressions in terms of location, age, keyword, etc.\ to show importance of Twitter for brands, which was \href{http://www.unit9.com/innovation/twitter-ces-experience}{Twitter 2015 CES experience}. Challenges:
-		\begin{itemize} \itemsep -5pt \small
-		\vspace{-.2cm}
-		\item Tight deadline and delayed/multiple times changed data from Twitter
-		\item User information wasn't there and required machine learning model to fill the gaps
-		\item Provided infrastructure wasn't enough to process/serve the amount of data which required a lot of byte shaving tricks
-		\end{itemize}
-
+{\large\bfseries\color{ink}AgFlow}\hfill{\small\color{muted}Geneva, Switzerland}\par
+{\bfseries\color{accent}CTO}\hfill{\small\color{muted}December 2016 - October 2019}\par
+{\bfseries\color{accent}Senior Developer}\hfill{\small\color{muted}February 2015 - November 2016}\par
+\begin{itemize}
+  \item Advanced from Senior Developer to CTO and grew the globally distributed engineering team from 2 to 11.
+  \item Built automated ingestion for email, HTML, Excel, PDF, and OCR sources, combining machine learning, synthetic data, and human review to handle incomplete and ambiguous inputs.
+  \item Created a data API across JSON, RPC, Excel, FIX, and SQL while protecting the confidentiality of source data.
+  \item Introduced Kubernetes, Rook, TimescaleDB, Pachyderm, Drone, and Prometheus; migrated the web client from CoffeeScript to TypeScript and launched the first Flutter clients.
 \end{itemize}
 
-{\sl \textbf{\href{http://indico-software.org/}{Indico @ CERN}} \hfill Geneva, CH} \\
-{\sl \textbf{Software Developer} \hfill Mar 13 - Aug 14} \\
+\section{Earlier experience}
 
-\vspace{-0.3cm}
-\begin{itemize} \itemsep -3pt
-	\vspace{-.2cm}
-	\item Integrated MVC and structured coding, and extracted microservices which easily enabled using multiple databases for better scalability and speed
-	\item Designed and implemented highly scalable and extensible polyglot storage system OODBMS (ZODB) + RDBMS (PostgreSQL) + NoSQL (Redis and MongoDB)
-	\item Brought Python 3 that results easier maintenance and faster application with fixed many bugs thanks to new Unicode handling
-	\item All in all, made the ground work for the next decade of CERN Event management application
-\end{itemize}
+\compactrole{Unit9}{London, United Kingdom}{Backend and Infrastructure Developer}{August 2014 - January 2015}
+\compactdetail{Built the Real Foodie backend and processed 3.5 TB of Twitter data for CES brand analytics.}
 
-{\sl \textbf{\href{https://launchpad.net/mvhub}{Community Software Lab}} \hfill Massachusetts, US} \\
-{\sl \textbf{Software Developer} \hfill Jun 11 - Feb 12} \\
+\compactrole{Indico at CERN}{Geneva, Switzerland}{Software Developer}{March 2013 - August 2014}
+\compactdetail{Modernized Indico, extracted services, added polyglot storage, and helped move it to Python 3.}
 
-\vspace{-0.3cm}
-\begin{itemize} \itemsep -3pt
-	\vspace{-.2cm}
-	\item Transition of social service search engines \textit{\href{http://mvhub.com/}{mvhub.com}} and \textit{\href{http://northshoreport.org/}{northshoreport.org}} to MVC architecture for easier development and maintenance
-	\item Custom ORM to provide backend agnostic storage system which enables plug and play between different DBMSs
-	\item Normalized DB schema for fixing various update bugs and improved performance
-\end{itemize}
+\compactrole{Community Software Lab}{Massachusetts, United States}{Software Developer}{June 2011 - February 2012}
+\compactdetail{Refactored social-service search engines, built a database-agnostic ORM, and normalized schemas.}
 
-{\sl \textbf{\href{http://www.ce.boun.edu.tr/}{Bogazici University Civil Engineering Department}} \hfill Istanbul, TR} \\
-{\sl \textbf{Software Developer} \hfill Mar 11 - Jun 11} \\
+\compactrole{Bogazici University}{Istanbul, Turkey}{Software Developer and Teaching Assistant}{February 2011 - June 2011}
+\compactdetail{Built traffic-simulation tools and taught systems programming.}
 
-\vspace{-0.3cm}
-\begin{itemize} \itemsep -3pt
-	\vspace{-.2cm}
-	\item Customizable incident detection and load generation plugins for Paramics, a full featured simulation tool used by the department
-	\item Implemented \textit{Traffic Simulator} to test the performance of the congestion/incident detection research algorithms that aren't easily simulated in their tools.
-\end{itemize}
+\compactrole{Commencis}{Istanbul, Turkey}{Software Developer}{January 2009 - June 2011}
+\compactdetail{Built monitoring, digital-signage, mobile-distribution, banking-log, and XML tooling.}
 
-{\sl \textbf{\href{http://www.cmpe.boun.edu.tr/}{Bogazici University Computer Engineering Department}} \hfill Istanbul, TR} \\
-{\sl \textbf{Teaching Assistant} \hfill Feb 11 - Jun 11} \\
+\section{Education}
 
-\vspace{-.3cm}
-\begin{itemize} \itemsep -3pt
-	\vspace{-.2cm}
-	\item \href{http://www.cmpe.boun.edu.tr/courses/?cmpe=230}{CMPE 230 - \textit{System Programming}}, teaches compilers, linkers, loaders, Unix and system calls, and uses assembly, make, C and Perl.
-	\item Helped students to prepare 3 projects and graded them, a minimal log parser for \textit{Apache Web Server}, a command line client for \textit{AWS} and a graphical user interface for \textit{wget}
-\end{itemize}
+{\bfseries\color{ink}Master of Science, Computer Science}\hfill{\small\color{muted}2014}\par
+{\color{accent}Swiss Federal Institute of Technology Lausanne, EPFL}\hfill{\small\color{muted}Lausanne, Switzerland}\par
+{\small Internet Computing specialization. Thesis: \textit{New Storage System for Indico, Event Management at CERN}. Projects included Nokia Mobile Data Challenge and \href{https://github.com/epfldata/squall}{Squall}, an online query-processing engine for Twitter Storm.}
 
-{\sl \textbf{\href{https://www.commencis.com/}{Commencis (previously Monitise/Pozitron)}} \hfill Istanbul, TR} \\
-{\sl \textbf{Software Developer} \hfill Jan 09 - Jun 11} \\
+\vspace{5pt}
+{\bfseries\color{ink}Bachelor of Engineering, Computer Engineering}\hfill{\small\color{muted}2011}\par
+{\color{accent}Bogazici University}\hfill{\small\color{muted}Istanbul, Turkey}\par
+{\small Thesis: \href{https://github.com/ferhatelmas/deviantART-analysis}{\textit{Social Analysis on DeviantART}}.}
 
-\vspace{-0.3cm}
-\begin{itemize} \itemsep -3pt
-	\vspace{-.2cm}
-	\item \textit{SessionSwitch Service}, a monitoring tool that keeps track of what developers do on their machines. After putting it in place, it seemed everybody worked longer
-	\item \textit{\href{http://kapalidevre.com}{kapalidevre.com} digital signage system} that enables customers to prepare custom playlists and to play them on multiple machines at the same time indefinitely such as screens at shopping malls. Rejuvenated the desktop client and integrated multiple web services to provide long-time lacking features such as news, weather forecasts, radio, etc.
-	\item \textit{Download Manager}, a web application to serve versions of mobile applications at pre-smart-phone era according to phone specification. A much simpler version of Google Play.
-	\item Implemented custom simple Nagios, \textit{Server health watcher aka Big Brother}, for analytics and emergency recovery
-	\item Implementation of a manager for logs and notifications for mobile banking at \href{http://www.isbank.com.tr/English/}{Turkish IsBank}
-	\item Domain specific editor for a custom XML-based language, that is used to define the hierarchy of the code written by the company
-\end{itemize}
-
-
-\section{EDUCATION}
-{\sl Master of Science,} Computer Science, with \href{http://ic.epfl.ch/specializations#content}{Internet Computing Specialization} \hfill{2014} \\
-  \href{http://ic.epfl.ch}{School of Computer and Communication Sciences} \\
-  \href{http://epfl.ch}{Swiss Federal Institute of Technology in Lausanne(EPFL)}, Switzerland \\
-  Thesis: \textit{\href{http://indico-software.org/}{"New Storage System for Indico, Event Management at CERN"}} \\
-  Semester Project: \textit{\href{http://research.nokia.com/page/12000}{"Nokia Mobile Data Challenge - Demographic Attributes"}} \\
-  Extra Project: \textit{\href{https://github.com/epfldata/squall}{"Squall, Online Query Processing Engine on top of Twitter Storm"}}
-
-{\sl Bachelor of Engineering,} \href{http://www.cmpe.boun.edu.tr/}{Computer Engineering} \hfill{2011} \\
-  Faculty of Engineering \\
-  \href{http://boun.edu.tr/en-US/Content/Default.aspx}{Bogazici University}, Istanbul, Turkey \\
-  Thesis: \textit{\href{https://github.com/ferhatelmas/deviantART-analysis}{"Social Analysis on DeviantART"}}
-
-\end{resume}
 \end{document}
